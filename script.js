@@ -27,40 +27,21 @@
 
 const poll = {
   question: 'What is your favourite programming language?',
-  options: [' 0: Javascript', '1: Python', '2: Rust', '3: C++'],
+  options: ['0: Javascript', '1: Python', '2: Rust', '3: C++'],
   answers: new Array(4).fill(0),
-  registerNewAnswer() {
+  RegisterNewAnswer() {
     const answer = Number(
-      prompt(
-        `${this.question}\n${this.options.join('\n')}\n(Write option number)`
-      )
+      prompt(`${this.question}\n${this.options}\n(Write an option number)`)
     );
-    console.log(answer);
+
+    typeof answer === 'number' &&
+      answer < this.answers.length &&
+      this.answers[answer]++;
+
+    displayResults();
+    displayResults('string');
   },
 };
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 // const poll = {
 //   question: 'What is your favourite programming language?',
